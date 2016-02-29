@@ -1,0 +1,19 @@
+{% extends "::base.html.twig" %}
+
+{% block title %}ContactsBundle:Address:showAddress{% endblock %}
+
+{% block body %}
+    <h1>Welcome to the Address:showAddress page</h1>
+    {% if address is not null %}
+        Address id: {{ address.id }}<br>
+        Address city: {{ address.city }}<br>
+        Address street: {{ address.street }}<br>
+        Address building: {{ address.building }}<br>
+        Address flat: {{ address.flat }}<br>
+        {% if address.person is not null %}
+            PERSON: {{ address.person.name }}
+        {% endif %}
+    {% else %}
+        sory nie ma addressa
+    {% endif %}
+{% endblock %}

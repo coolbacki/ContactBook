@@ -1,0 +1,18 @@
+{% extends "::base.html.twig" %}
+
+{% block title %}ContactsBundle:Phone:showPhone{% endblock %}
+
+{% block body %}
+<h1>Welcome to the Phone:showPhone page</h1>
+
+    {% if phone is not null %}
+        Phone id: {{ phone.id }}<br>
+        Phone city: {{ phone.number }}<br>
+        Phone street: {{ phone.numberDescription }}<br>
+        {% if phone.person is not null %}
+            PERSON: {{ phone.person.name }}
+        {% endif %}
+    {% else %}
+        sory nie ma phonea
+    {% endif %}
+{% endblock %}

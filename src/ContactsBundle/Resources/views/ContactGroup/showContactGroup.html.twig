@@ -1,0 +1,11 @@
+{% if contactGroup is not null %}
+    {{ contactGroup.groupName }}<br>
+    {% if contactGroup.persons is not null %}
+        {% for person in contactGroup.persons %}
+            PERSON: {{ person.name }}<br>
+        {% endfor %}
+    {% endif %}
+{% else %}
+    sory nie ma contactGroupa
+{% endif %}
+

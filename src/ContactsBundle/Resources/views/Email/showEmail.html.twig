@@ -1,0 +1,18 @@
+{% extends "::base.html.twig" %}
+
+{% block title %}ContactsBundle:Email:showEmail{% endblock %}
+
+{% block body %}
+<h1>Welcome to the Email:showEmail page</h1>
+
+    {% if email is not null %}
+        Email id: {{ email.id }}<br>
+        Email city: {{ email.email }}<br>
+        Email street: {{ email.emailDescription }}<br>
+        {% if email.person is not null %}
+            PERSON: {{ email.person.name }}
+        {% endif %}
+    {% else %}
+        sory nie ma emaila
+    {% endif %}
+{% endblock %}

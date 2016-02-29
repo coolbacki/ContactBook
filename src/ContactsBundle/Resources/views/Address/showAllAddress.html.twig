@@ -1,0 +1,13 @@
+{% extends "::base.html.twig" %}
+
+{% block title %}ContactsBundle:Address:showAllAddress{% endblock %}
+
+{% block body %}
+<h1>Welcome to the Address:showAllAddress page</h1>
+
+    {% for address in addresses %}
+        {% include 'ContactsBundle:Address:showAddress.html.twig' with {'address': address} %}
+    {% else %}
+        sorawa - nie ma addressów
+    {% endfor %}
+{% endblock %}

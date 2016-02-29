@@ -1,0 +1,28 @@
+{% extends "ContactsBundle::base.html.twig" %}
+
+{% block left %}
+
+    {% render ('/person/list') %}
+{% endblock %}
+
+
+
+{% block right %}
+    <div class="panel panel-primary">
+        <div class="panel-heading">Wprowadź nową osobę</div>
+        <div class="panel-body">
+            {{ form_start(form) }}
+            {{ form_widget(form.name, { 'attr': {'class': 'form-control', 'placeholder': 'Imię'} }) }}<br>
+            {{ form_widget(form.surname, { 'attr': {'class': 'form-control', 'placeholder': 'Nazwisko'} }) }}<br>
+            {{ form_widget(form.description, { 'attr': {'class': 'form-control', 'placeholder': 'Opis'} }) }}<br>
+            <hr>
+            Grupy:
+            {{ form_widget(form.contactGroups, { 'attr': {'class': 'checkbox', 'label': 'Grupy'} }) }}
+            <hr>
+            {{ form_widget(form.save, { 'attr': {'class': 'btn btn-success'} }) }}
+            {{ form_end(form) }}
+        </div>
+    </div>
+    </div>
+
+{% endblock %}

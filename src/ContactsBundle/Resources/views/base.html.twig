@@ -1,0 +1,55 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+    <script src="js/script.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./style/style.css">
+</head>
+<body>
+
+
+<br>
+<table align="center">
+    <tr>
+        <td>
+            <a href="/" type="button" class="btn btn-danger">Lista kontaktów</a>
+            <a href="/contactGroup" type="button" class="btn btn-danger">Grupy</a>
+
+            <form class="input-group pull-right col-lg-6" method="post" action="/">
+                <input name="search" type="text" class="form-control" placeholder="Szukaj kontaktu">
+                      <span class="input-group-btn">
+                        <button name="submit" class="btn btn-success" type="submit">Idź!</button>
+                      </span>
+            </form>
+            <hr>
+        </td>
+    </tr>
+    <tr>
+
+        <!-- lewy blok -->
+        <td valign="top" width="420">
+            {% block left %}
+
+            {% endblock %}
+        </td>
+
+        <!-- odstęp między blokami -->
+        <td width="20"></td>
+
+        <!-- prawy blok -->
+        <td valign="top" width="500">
+            <div>
+                {% block right %}
+
+                {% endblock %}
+            </div>
+        </td>
+
+    </tr>
+</table>
+
+
+</body>
+</html>

@@ -1,0 +1,93 @@
+{% if person is not null %}
+    <div class="panel panel-primary list-group">
+        <div class="list-group-item active">
+            <div class="list-group-item-heading">{{ person.name }} {{ person.surname }}
+                <div class="pull-right" style="color: white">
+                    <a href="{{ path('modifyForm', {id: person.id}) }}" class="glyphicon glyphicon-edit"
+                       style="color: white"></a>
+                    <a href="{{ path('delete', {id: person.id}) }}" class="glyphicon glyphicon-remove"
+                       style="color: white"></a>
+                </div>
+            </div>
+            <p class="list-group-item-text">
+                {{ person.description }}
+            <hr>
+            {% for group in person.contactGroups %}
+                <span class="label label-info"><small>{{ group.groupName }}</small></span>
+            {% endfor %}
+            </p>
+        </div>
+
+        <div class="list-group-item">
+
+            <p class="list-group-item-heading"><br><b>ADRESY:</b></p>
+            <hr>
+            <div class="list-group-item-text">
+                {% for address in person.addresses %}
+                    {{ address.street }} {{ address.building }} / {{ address.flat }}
+                    <div class="pull-right">
+                        <a href="{{ path('modifyAddressForm', {personId: address.person.id, id: address.id}) }}"
+                           class="glyphicon glyphicon-edit"></a>
+                        <a href="{{ path('deleteAddress', {id: address.id}) }}"
+                           class="glyphicon glyphicon-remove"></a>
+                    </div>
+                    <br>
+                    {{ address.city }}
+                    <hr>
+                {% endfor %}
+                <a href="{{ path('newAddressForm', {personId: person.id} ) }}">
+                    <span class="glyphicon glyphicon-plus"></span> doodaj nowy adres</a>
+            </div>
+        </div>
+
+        <div class="list-group-item">
+
+            <p class="list-group-item-heading"><br><b>TELEFONY:</b></p>
+            <hr>
+            <div class="list-group-item-text">
+                {% for phone in person.phones %}
+
+                    {{ phone.number }} <span class="label label-success">{{ phone.numberDescription }} </span>
+
+                    <div class="pull-right">
+                        <a href="{{ path('modifyPhoneForm', {personId: phone.person.id, id: phone.id}) }}"
+                           class="glyphicon glyphicon-edit"></a>
+                        <a href="{{ path('deletePhone', {id: phone.id}) }}"
+                           class="glyphicon glyphicon-remove"></a>
+                    </div>
+                    <hr>
+
+                {% endfor %}
+                <a href="{{ path('newPhoneForm', {personId: person.id} ) }}">
+                    <span class="glyphicon glyphicon-plus"></span> doodaj nowy telefon</a><br>
+            </div>
+        </div>
+
+        <div class="list-group-item">
+
+            <p class="list-group-item-heading"><br><b>MAILE:</b></p>
+            <hr>
+            <div class="list-group-item-text">
+                {% for email in person.emails %}
+
+
+                    {{ email.email }} <span class="label label-success">{{ email.emailDescription }}</span>
+                    <div class="pull-right">
+                        <a href="{{ path('modifyEmailForm', {personId: email.person.id, id: email.id}) }}"
+                           class="glyphicon glyphicon-edit"></a>
+                        <a href="{{ path('deleteEmail', {id: email.id}) }}"
+                           class="glyphicon glyphicon-remove"></a>
+                    </div>
+                    <hr>
+
+                {% endfor %}
+                <a href="{{ path('newEmailForm', {personId: person.id} ) }}">
+                    <span class="glyphicon glyphicon-plus"></span> doodaj nowy Email</a><br>
+            </div>
+        </div>
+
+    </div>
+
+{% else %}
+    sory nie ma persona
+{% endif %}

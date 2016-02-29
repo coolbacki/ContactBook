@@ -1,0 +1,21 @@
+{% extends "ContactsBundle::base.html.twig" %}
+
+{% block left %}
+    {% include ("ContactsBundle:Person:showPerson.html.twig") %}
+{% endblock %}
+
+{% block right %}
+    <div class="panel panel-primary">
+        <div class="panel-heading">Wprowadź nowy Email</div>
+        <div class="panel-body">
+            {{ form_start(form) }}
+            {{ form_errors(form.email) }}<br>
+            {{ form_widget(form.email, { 'attr': {'class': 'form-control', 'placeholder': 'Email'} }) }}<br>
+            {{ form_widget(form.emailDescription, { 'attr': {'class': 'form-control', 'placeholder': 'Opis'} }) }}<br>
+            {{ form_widget(form.save, { 'attr': {'class': 'btn btn-success'} }) }}
+            {{ form_end(form) }}
+        </div>
+    </div>
+    </div>
+
+{% endblock %}

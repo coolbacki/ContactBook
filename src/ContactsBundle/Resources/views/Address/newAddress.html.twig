@@ -1,0 +1,22 @@
+{% extends "ContactsBundle::base.html.twig" %}
+
+{% block left %}
+    {% include ("ContactsBundle:Person:showPerson.html.twig") %}
+{% endblock %}
+
+{% block right %}
+    <div class="panel panel-primary">
+        <div class="panel-heading">Wprowadź nowy Adres</div>
+        <div class="panel-body">
+            {{ form_start(form) }}
+            {{ form_widget(form.street, { 'attr': {'class': 'form-control', 'placeholder': 'Ulica'} }) }}<br>
+            {{ form_widget(form.building, { 'attr': {'class': 'form-control', 'placeholder': 'Numer budynku'} }) }}<br>
+            {{ form_widget(form.flat, { 'attr': {'class': 'form-control', 'placeholder': 'Numer mieszkania'} }) }}<br>
+            {{ form_widget(form.city, { 'attr': {'class': 'form-control', 'placeholder': 'Miasto'} }) }}<br>
+            {{ form_widget(form.save, { 'attr': {'class': 'btn btn-success'} }) }}
+            {{ form_end(form) }}
+        </div>
+    </div>
+    </div>
+
+{% endblock %}

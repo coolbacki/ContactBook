@@ -1,0 +1,98 @@
+<?php
+
+namespace ContactsBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * @ORM\Table(name="emails")
+ * @ORM\Entity(repositoryClass="ContactsBundle\Entity\EmailRepository")
+ */
+class Email
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="email", type="string", length=140)
+     */
+    private $email;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="emailDescription", type="string", length=50)
+     */
+    private $emailDescription;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="Person", inversedBy="emails")
+     * @ORM\JoinColumn(name="person_id", referencedColumnName="id")
+     */
+    private $person;
+
+
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set email
+     *
+     * @param string $email
+     * @return Email
+     */
+    public function setEmail($email)
+    {
+        $this->email = $email;
+
+        return $this;
+    }
+
+    /**
+     * Get email
+     *
+     * @return string 
+     */
+    public function getEmail()
+    {
+        return $this->email;
+    }
+
+    /**
+     * Set emailDescription
+     *
+     * @param string $emailDescription
+     * @return Email
+     */
+    public function setEmailDescription($emailDescription)
+    {
+        $this->emailDescription = $emailDescription;
+
+        return $this;
+    }
+
+    /**
+     * Get emailDescription
+     *
+     * @return string 
+     */
+    public function getEmailDescription()
+    {
+        return $this->emailDescription;
+    }
+}

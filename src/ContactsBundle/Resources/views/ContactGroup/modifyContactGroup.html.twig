@@ -1,0 +1,24 @@
+{% extends "ContactsBundle::base.html.twig" %}
+
+{% block left %}
+    {% render ('/contact/group/list') %}
+
+{% endblock %}
+
+{% block right %}
+    <div class="panel panel-primary">
+        <div class="panel-heading">Wprowadź nową Grupę</div>
+        <div class="panel-body">
+            {{ form_start(form) }}
+            {{ form_widget(form.groupName, { 'attr': {'class': 'form-control', 'placeholder': 'Nazwa grupy'} }) }}<br>
+            <hr>
+            Osoby:
+            {{ form_widget(form.persons, { 'attr': {'class': 'checkbox', 'label': 'Osoby'} }) }}
+            <hr>
+            {{ form_widget(form.save, { 'attr': {'class': 'btn btn-success'} }) }}
+            {{ form_end(form) }}
+        </div>
+    </div>
+    </div>
+
+{% endblock %}

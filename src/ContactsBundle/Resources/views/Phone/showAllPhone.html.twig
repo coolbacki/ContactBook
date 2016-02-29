@@ -1,0 +1,12 @@
+{% extends "::base.html.twig" %}
+
+{% block title %}ContactsBundle:Phone:showAllPhone{% endblock %}
+
+{% block body %}
+<h1>Welcome to the Phone:showAllPhone page</h1>
+    {% for phone in phones %}
+        {% include 'ContactsBundle:Phone:showPhone.html.twig' with {'phone': phone} %}
+    {% else %}
+        sorawa - nie ma phoneów
+    {% endfor %}
+{% endblock %}
